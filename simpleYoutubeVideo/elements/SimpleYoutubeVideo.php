@@ -35,12 +35,15 @@ class SimpleYoutubeVideo extends ContentElement {
             if (is_array($size))
             {
                 $this->Template->size = ' width="' . $size[0] . '" height="' . $size[1] . '"';
+                $this->Template->width = $size[0];
+                $this->Template->height = $size[1];
             }
         }
 
         $objFile = new \stdClass();
         $objFile->path = 'http://www.youtube.com/embed/' . $this->youtube;
 
+        $this->Template->ytId = $this->youtube;
         $this->Template->file = $objFile;
     }
 

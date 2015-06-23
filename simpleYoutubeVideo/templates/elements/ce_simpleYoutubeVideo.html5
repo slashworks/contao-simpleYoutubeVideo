@@ -4,7 +4,28 @@
     <?php endif; ?>
 
 <!-- indexer::stop -->
-<iframe src="<?php echo $this->file->path; ?>" <?php echo $this->size; ?> frameborder="0"></iframe>
+<div id="player_<?php echo $this->ytId; ?>" class="ytVideo"></div>
 <!-- indexer::continue -->
 
 </div>
+
+<script src="http://www.youtube.com/player_api"></script>
+
+<script>
+    <?php $GLOBALS['SWAPI']['YT'] = 1;?>
+    var player_<?php echo $this->ytId; ?>;
+    window.addEventListener('load',function(){
+        player_<?php echo $this->ytId; ?> = new YT.Player('player_<?php echo $this->ytId; ?>', {
+            height: <?php echo ($this->height) ? $this->height : "650"; ?>,
+            width: <?php echo ($this->width) ? $this->width : "400"; ?>,
+            videoId: '<?php echo $this->ytId; ?>',
+            playerVars: {
+
+            },
+            events: {
+//                'onReady': onPlayerReady,
+//                'onStateChange': onPlayerStateChange
+            }
+        });
+    })
+</script>
