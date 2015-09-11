@@ -4,7 +4,7 @@
     <?php endif; ?>
 
 <!-- indexer::stop -->
-<div id="player_<?php echo $this->ytId; ?>" class="ytVideo"></div>
+<div id="player_<?php echo $this->playerId; ?>" class="ytVideo"></div>
 <!-- indexer::continue -->
 
 </div>
@@ -13,9 +13,9 @@
 
 <script>
     <?php $GLOBALS['SWAPI']['YT'] = 1;?>
-    var player_<?php echo $this->ytId; ?>;
+    var player_<?php echo $this->playerId; ?>;
     window.addEventListener('load',function(){
-        player_<?php echo $this->ytId; ?> = new YT.Player('player_<?php echo $this->ytId; ?>', {
+        player_<?php echo $this->playerId; ?> = new YT.Player('player_<?php echo $this->playerId; ?>', {
             height: <?php echo ($this->height) ? $this->height : "650"; ?>,
             width: <?php echo ($this->width) ? $this->width : "400"; ?>,
             videoId: '<?php echo $this->ytId; ?>',

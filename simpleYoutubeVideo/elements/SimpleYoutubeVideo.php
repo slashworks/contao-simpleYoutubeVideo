@@ -9,9 +9,6 @@
 
 namespace slashworks;
 
-
-use Contao\ContentElement;
-
 /**
  * Class SimpleYoutubeVideo
  * @package slashworks SimpleYoutubeVideo
@@ -19,7 +16,7 @@ use Contao\ContentElement;
  * @copyright Joe Ray Gregory @ slashworks 2013
  */
 
-class SimpleYoutubeVideo extends ContentElement {
+class SimpleYoutubeVideo extends \ContentElement {
 
     protected $strTemplate = 'ce_simpleYoutubeVideo';
 
@@ -43,6 +40,10 @@ class SimpleYoutubeVideo extends ContentElement {
         $objFile = new \stdClass();
         $objFile->path = 'http://www.youtube.com/embed/' . $this->youtube;
 
+
+
+
+        $this->Template->playerId = standardize($this->youtube);
         $this->Template->ytId = $this->youtube;
         $this->Template->file = $objFile;
     }
