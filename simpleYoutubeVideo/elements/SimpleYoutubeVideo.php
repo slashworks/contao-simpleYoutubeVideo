@@ -22,6 +22,9 @@ class SimpleYoutubeVideo extends \ContentElement {
 
     public function compile()
     {
+
+        $GLOBALS['TL_JAVASCRIPT'][] = 'http://www.youtube.com/player_api';
+
         $this->Template->size = '';
 
         // Set the size
@@ -39,9 +42,6 @@ class SimpleYoutubeVideo extends \ContentElement {
 
         $objFile = new \stdClass();
         $objFile->path = 'http://www.youtube.com/embed/' . $this->youtube;
-
-
-
 
         $this->Template->playerId = preg_replace('/[^\da-z]/i', '', $this->youtube);
         $this->Template->ytId = $this->youtube;
