@@ -43,7 +43,7 @@ class SimpleYoutubeVideo extends \ContentElement {
 
 
 
-        $this->Template->playerId = standardize($this->youtube);
+        $this->Template->playerId = preg_replace('/[^\da-z]/i', '', $this->youtube);
         $this->Template->ytId = $this->youtube;
         $this->Template->file = $objFile;
     }
